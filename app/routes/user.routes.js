@@ -1,24 +1,28 @@
-const { body } = require("express-validator");
+const { check } = require("express-validator");
 
 module.exports = (app) => {
   const users = require("../controllers/UserController.js");
 
   //Create User
 
-  app
-    .route("/api/user/register", [
-      body("bvn").isLength({ min: 9 }).isNumeric(),
-      body("email").isEmail(),
-      body("password").isLength({ min: 7 })
-    ])
-    .post(users.createUser);
+    app.post('/api/user/register',[
+        check("bvn").isLength({ min: 9 }).isNumeric().not().isEmpty(),
+        check("email").isEmail().not().isEmpty(),
+        check("password").isLength({ min: 7 }).not().isEmpty()
+    ], users.createUser)
+
+
 
   //Login User
   app
-    .route("/api/user/login", [
-        body("pin").isNumeric(),
-      body("email").isEmail().not().isEmpty(),
-      body("password")
-    ])
-    .post(users.loginUser);
+    .post("/api/user/login", [
+        check("pin").isNumeric(),
+      check("email").isEmail().not().isEmpty(),
+      check("password")
+    ],users.loginUser);
+
+  //forgot password
+    app.post("/api/user/forgot",[
+        check("email").isEmail().not().isEmpty().normalizeEmail(),
+    ],users.forgotPassword);
 };

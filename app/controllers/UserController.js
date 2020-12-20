@@ -34,7 +34,7 @@ exports.createUser = async (req, res) => {
   const user = new User();
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    return res.status(422).json({ errors: errors.array() });
   }
   if (await User.findOne({ email: data.email })) {
     return res.status(404).send({
@@ -60,6 +60,7 @@ exports.createUser = async (req, res) => {
               to: data.email,
               subject: "Kolo | Activate Account",
               context: {
+                forgot:false,
                 name: json.data.first_name + "" + json.data.last_name,
                 email: data.email,
                 url: "http://localhost:8080/activate?key=" + token
@@ -73,6 +74,7 @@ exports.createUser = async (req, res) => {
             user.verified = false;
             user.password = hash;
             user.userToken = token;
+            user.pin = data.pin;
             user.resetPasswordExpire = Date.now() + 86400000;
             if (user.save()) {
               transporter.sendMail(HelperOptions, (error, info) => {
@@ -108,6 +110,59 @@ exports.loginUser = async (req, res) => {
   pin ?  await passwordLess(email, pin, res) : await passwordFull(email, password, res);
 };
 
+exports.forgotPassword = async (req, res) => {
+  const data = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  await User.findOne({
+    email : data.email
+  }).exec((err, user) => {
+    if (err) throw err;
+    if(user){
+      //return res.send(user._id.toString());
+      crypto.randomBytes(20, (err, buffer) => {
+        const token = buffer.toString('hex');
+        User.findOneAndUpdate({_id: user._id.toString()},{$set: {
+            userToken: token,
+            resetPasswordExpires: Date.now() + 86400000
+          }},{new:true},(err,user)=>{
+          if(err){
+            return res.status(404).json({message:'User could not be found'})
+          }else{
+            let HelperOptions = {
+              from: `Kolo ${process.env.EMAIL_ADDRESS}`,
+              to: data.email,
+              subject: 'Kolo | Password Reset',
+              context: {
+                name: user.name,
+                email: data.email,
+                forgot: true,
+                url: 'http://localhost:8080/reset?token=' + token
+              }
+            };
+            transporter.sendMail(HelperOptions, (error,info) => {
+              if(error) {
+                return res.json(error);
+              }else{
+                return res.send({
+                  userToken: token,
+                  resetPasswordExpires: Date.now() + 3600000,
+                  message : `An e-mail has been sent to ${data.email} for further instructions`
+                });
+              }
+            });
+          }
+        });
+      });
+    }else{
+      return res.status(404).send({
+        message : "This user does not exists"
+      })
+  }
+  });
+};
 
 async function passwordFull(email, password, res) {
   try{
@@ -146,8 +201,6 @@ async function passwordFull(email, password, res) {
     });
   }
 }
-
-
 
 async function passwordLess(email,pin,res) {
   try{
