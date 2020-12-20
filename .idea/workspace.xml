@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6d22e00a-6fd9-4fd1-b4b6-f112e83d39f2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1luoSZ7Gwcm95wJ9prndQMuIjRc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.18.4" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.9" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d22e00a-6fd9-4fd1-b4b6-f112e83d39f2" name="Default Changelist" comment="" />
+      <created>1608456342014</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608456342014</updated>
+      <workItem from="1608456346013" duration="177000" />
+      <workItem from="1608456547306" duration="13634000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="25" key="#Plugins" timestamp="1608467039001">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="275" y="25" key="#Plugins/0.0.1366.768@0.0.1366.768" timestamp="1608467039001" />
+    <state width="1345" height="192" key="GridCell.Tab.0.bottom" timestamp="1608456472375">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1608456472375" />
+    <state width="1345" height="192" key="GridCell.Tab.0.center" timestamp="1608456472375">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1608456472375" />
+    <state width="1345" height="192" key="GridCell.Tab.0.left" timestamp="1608456472375">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1608456472375" />
+    <state width="1345" height="192" key="GridCell.Tab.0.right" timestamp="1608456472375">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1608456472375" />
+    <state x="119" y="0" key="SettingsEditor" timestamp="1608467724439">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="119" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1608467724439" />
+    <state x="339" y="172" key="run.anything.popup" timestamp="1608464128101">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1608464128101" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1608467684914">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1608467684914" />
+  </component>
+</project>
